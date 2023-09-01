@@ -1,14 +1,27 @@
 import java.util.Random
 
-def randomCommands = ["ls", "pwd", "echo", "cat", "grep"]
+def commands = ["ls", "cd", "pwd", "echo", "mkdir"]
+def rand = new Random()
 
-def randomCommand = randomCommands.get(new Random().nextInt(randomCommands.size()))
+pipeline {
+    agent any
 
-println "The random command is: ${randomCommand}"
-
-def steps = ["ls", "pwd", "echo", "cat", "grep"]
-
-for (step in steps) {
-  println "Running step: ${step}"
-  sh "${step}"
+    stages {
+        stage('Stage 1') {
+            steps {
+                echo commands[rand.nextInt(commands.size())]
+            }
+        }
+        stage('Stage 2') {
+            steps {
+                echo commands[rand.nextInt(commands.size())]
+            }
+        }
+        stage('Stage 3') {
+            steps {
+                echo commands[rand.nextInt(commands.size())]
+            }
+        }
+    }
 }
+
