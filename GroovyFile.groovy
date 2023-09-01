@@ -1,3 +1,10 @@
+
+def parameterList = [
+    choice(choices: ["---", "Nuevo", "Viejo", description: "Estado", name:"State"])
+]
+
+properties([parameters(parameterList)])
+
 pipeline {
     agent any
 
