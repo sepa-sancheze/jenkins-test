@@ -16,12 +16,12 @@ pipeline {
     stages {
         stage('Get Parameters') {
             steps {
-                echo -e "The parameters are: ${params}"
+                echo "The parameters are: ${params}"
             }
         }
         stage('Set variables') {
             steps {
-                echo -e "The environment is: ${env}"
+                echo "The environment is: ${env}"
             }
         }
         stage('Stage 3') {
