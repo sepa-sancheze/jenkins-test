@@ -9,14 +9,15 @@ properties([parameters(parameterList)])
 
 // Declaration of variables
 def env = 'ENV'
+def version = ''
 
 pipeline {
     agent any
 
     stages {
-        stage('Get Parameters') {
+        stage('Obtain information') {
             steps {
-                echo "The parameters are: ${params}"
+                echo "Branch name: ${env.BRANCH_NAME}"
             }
         }
         stage('Set variables') {
@@ -24,9 +25,9 @@ pipeline {
                 echo "The environment is: ${env}"
             }
         }
-        stage('Stage 3') {
+        stage('Printing Version') {
             steps {
-                echo 'Random Word 3'
+                echo "The version is: ${version}"
             }
         }
     }
