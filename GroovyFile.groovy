@@ -8,10 +8,10 @@ def parameterList = [
 properties([parameters(parameterList)])
 
 // Declaration of variables
-def env = 'ENV'
+def env = 'npd'
 def group_name = JOB_NAME.split('/')[0]
 def branch = (BRANCH_NAME.indexOf('/') >= 1) ? BRANCH_NAME.split('/')[1] : BRANCH_NAME
-def version = "npd.${group_name}.${branch}.---"
+def version = "${env}.${group_name}.${branch}.---"
 
 pipeline {
     agent any
@@ -20,11 +20,6 @@ pipeline {
         stage('Obtain information') {
             steps {
                 echo "Job name: ${JOB_NAME}"
-            }
-        }
-        stage('Set variables') {
-            steps {
-                echo "The index is: ${count}"
             }
         }
         stage('Printing Version') {
