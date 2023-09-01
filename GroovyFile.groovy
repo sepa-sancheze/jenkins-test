@@ -1,6 +1,7 @@
 import groovy.json.JsonSlurperClassic
 
 def parameterList = [
+    string(name: "Version", description: "The Version name that you are Tagging"),
     choice(choices: ["---", "Nuevo", "Viejo"].join("\n"), description: "Estado", name:"State")
 ]
 
