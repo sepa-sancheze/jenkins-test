@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Obtain information') {
             steps {
-                echo "Branch name: ${env.BRANCH_NAME}"
+                echo "Branch name: ${BRANCH_NAME}"
             }
         }
         stage('Set variables') {
