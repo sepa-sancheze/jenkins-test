@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurperClassic
 
 def parameterList = [
-    choice(choices: ["---", "Nuevo", "Viejo", description: "Estado", name:"State"])
+    choice(choices: ["---", "Nuevo", "Viejo"].join("\n"), description: "Estado", name:"State")
 ]
 
 properties([parameters(parameterList)])
