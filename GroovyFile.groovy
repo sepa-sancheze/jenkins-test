@@ -9,7 +9,7 @@ properties([parameters(parameterList)])
 
 // Declaration of variables
 def env = 'ENV'
-def version = ''
+def version = "npd..${BRANCH_NAME}.---"
 
 pipeline {
     agent any
@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Obtain information') {
             steps {
-                echo "Branch name: ${BRANCH_NAME}"
+                echo "Branch name: ${JOB_NAME}"
             }
         }
         stage('Set variables') {
