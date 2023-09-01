@@ -1,3 +1,4 @@
+import groovy.json.JsonSlurperClassic
 
 def parameterList = [
     choice(choices: ["---", "Nuevo", "Viejo", description: "Estado", name:"State"])
