@@ -10,7 +10,7 @@ properties([parameters(parameterList)])
 // Declaration of variables
 def env = 'ENV'
 def group_name = JOB_NAME.split('/')[0]
-def count = BRANCH_NAME.indexOf('/')
+def count = BRANCH_NAME.indexOf('*')
 
 def version = "npd.${group_name}.${BRANCH_NAME}.---"
 
