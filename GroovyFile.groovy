@@ -7,18 +7,21 @@ def parameterList = [
 
 properties([parameters(parameterList)])
 
+// Declaration of variables
+def env = 'ENV'
+
 pipeline {
     agent any
 
     stages {
-        stage('Stage 1') {
+        stage('Get Parameters') {
             steps {
-                echo 'Random Word 1'
+                echo -e "The parameters are: ${params}"
             }
         }
-        stage('Stage 2') {
+        stage('Set variables') {
             steps {
-                echo 'Random Word 2'
+                echo -e "The environment is: ${env}"
             }
         }
         stage('Stage 3') {
