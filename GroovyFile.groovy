@@ -10,13 +10,7 @@ properties([parameters(parameterList)])
 // Declaration of variables
 def env = 'ENV'
 def group_name = JOB_NAME.split('/')[0]
-def count = BRANCH_NAME.indexOf('*')
-def branch = ''
-if (count >= 1){
-    branch = BRANCH_NAME.split('/')[1]
-}else {
-    branch = BRANCH_NAME
-}
+def branch = BRANCH_NAME.indexOf('/') >= 1 ? BRANCH_NAME.split('/')[1] : BRANCH_NAME
 def version = "npd.${group_name}.${branch}.---"
 
 pipeline {
